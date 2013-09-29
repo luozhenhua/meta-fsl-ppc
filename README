@@ -6,8 +6,8 @@ OpenEmbedded and/or Yocto.
 
 This layer depends on:
 
-URI: git://git.openembedded.org/openembedded-core
-branch: master
+URI: git://git.yoctoproject.org/poky
+branch: dora
 revision: HEAD
 
 Contributing
@@ -27,7 +27,7 @@ Source code:
 
 When creating patches, please use something like:
 
-    git format-patch -s --subject-prefix='meta-fsl-ppc dylan][PATCH' origin
+    git format-patch -s --subject-prefix='meta-fsl-ppc dora][PATCH' origin
 optionally include a branch if the patch applies to multiple branches,
 otherwise master is assumed
 
