@@ -9,13 +9,18 @@ require recipes-kernel/linux/linux-qoriq-sdk.inc
 
 PR = "${INC_PR}.1"
 
-DEPENDS_append = " libgcc"
+DEPENDS_append = " libgcc kern-tools-native"
 KERNEL_CC_append = " ${TOOLCHAIN_OPTIONS}"
 KERNEL_LD_append = " ${TOOLCHAIN_OPTIONS}"
 
 do_configure_prepend() {
 	# copy desired defconfig so we pick it up for the real kernel_do_configure
 	cp ${KERNEL_DEFCONFIG} ${B}/.config
+    
+	# add config fragments    
+    	if [ -a "${DELTA_KERNEL_DEFCONFIG}" ]; then
+        	merge_config.sh -m .config ${DELTA_KERNEL_DEFCONFIG}
+    	fi
 
 	# append sdk version in kernel version if SDK_VERSION is defined
 	if [ -n "${SDK_VERSION}" ]; then
