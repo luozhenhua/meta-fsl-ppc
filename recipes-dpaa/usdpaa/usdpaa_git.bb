@@ -9,7 +9,7 @@ DEPENDS = "libxml2 libedit ncurses readline flib fmc"
 RDEPENDS_${PN} = "libgcc bash"
 
 SRC_URI = "git://git.freescale.com/ppc/sdk/usdpaa.git"
-SRCREV = "97fe45d9697ef339e10a1885539b23fa7fcb113e"
+SRCREV = "cc8e332c64e5840ea2037624159801284434caba"
 
 S = "${WORKDIR}/git"
 
